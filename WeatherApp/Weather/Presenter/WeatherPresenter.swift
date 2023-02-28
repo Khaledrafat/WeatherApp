@@ -20,7 +20,10 @@ final class WeatherPresenter: WeatherPresenterPR{
     private var weatherItems: [WeatherModelPR] = []
     
     // MARK: - INIT
-    init(view: WeatherVCPR, interactor: WeatherInteractorPR, weatherType: WeatherType , dataSource : WeatherDataSourcePR = WeatherDataSource()) {
+    init(view: WeatherVCPR,
+         interactor: WeatherInteractorPR,
+         weatherType: WeatherType ,
+         dataSource : WeatherDataSourcePR = WeatherDataSource()) {
         self.view = view
         self.interactor = interactor
         self.weatherType = weatherType
@@ -106,7 +109,9 @@ final class WeatherPresenter: WeatherPresenterPR{
         var selectedIndex = 0
         var text = ""
         var type : locationType = .location
-        if let lastWeather = lastWeather , let lat = lastWeather.weatherLat , let long = lastWeather.weatherLong {
+        if let lastWeather = lastWeather,
+           let lat = lastWeather.weatherLat,
+           let long = lastWeather.weatherLong {
             selectedIndex = 0
             text = "\(long) , \(lat)"
         } else if let lastWeather = lastWeather , let city = lastWeather.weatherCity {
@@ -115,7 +120,9 @@ final class WeatherPresenter: WeatherPresenterPR{
             type = .city
         }
         vc.configureWithSelectedLocation(text, type, selectedIndex , weatherType)
-        let presenter = WeatherPresenter(view: vc, interactor: ForecastInteractor(), weatherType: weatherType)
+        let presenter = WeatherPresenter(view: vc,
+                                         interactor: ForecastInteractor(),
+                                         weatherType: weatherType)
         vc.forecastPresenter = presenter
         return vc
     }
