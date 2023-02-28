@@ -206,16 +206,8 @@
 				04F9CF0D29ABDCCA0054C199 /* Protocols */,
 				04F9CF0629ABDC5C0054C199 /* Presenter */,
 				04F9CF0529ABDC570054C199 /* View */,
-				04F9CF0429ABDBFF0054C199 /* Model */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		04F9CF0429ABDBFF0054C199 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		04F9CF0529ABDC570054C199 /* View */ = {
