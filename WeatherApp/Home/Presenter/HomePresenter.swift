@@ -8,13 +8,7 @@
 import Foundation
 import UIKit
 
-final class HomePresenter: HomePresenter_PR {
-    
-    private var view: HomeVC_PR!
-    
-    init(view: HomeVC_PR) {
-        self.view = view
-    }
+final class HomePresenter: HomePresenterPR{
     
     // MARK: - Open Forecast VC
     func openWeatherVC(type: WeatherType) -> WeatherVC {

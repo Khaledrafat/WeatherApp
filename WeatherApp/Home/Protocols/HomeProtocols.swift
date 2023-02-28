@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol HomePresenter_PR {
+protocol HomePresenterPR{
     func openWeatherVC(type: WeatherType) -> WeatherVC
 }

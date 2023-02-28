@@ -7,13 +7,13 @@
 
 import UIKit
 
-class WeatherDataSource: WeatherDataSource_PR {
+class WeatherDataSource: WeatherDataSourcePR{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var dataSourceItems : [WeatherItem] = []
     
     // MARK: - Fetch Items
-    func fetchItems() -> [WeatherModel_PR] {
+    func fetchItems() -> [WeatherModelPR] {
         do {
             let items = try context.fetch(WeatherItem.fetchRequest())
             var dataSource = [DataSourceModel]()
@@ -31,7 +31,7 @@ class WeatherDataSource: WeatherDataSource_PR {
     }
     
     // MARK: - Create & Save Item
-    func create_Save_Item(weather : WeatherModel_PR) {
+    func create_Save_Item(weather : WeatherModelPR) {
         let item = WeatherItem(context: context)
         item.weatherLong = weather.weatherLong
         item.weatherLat = weather.weatherLat

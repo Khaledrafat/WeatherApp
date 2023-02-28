@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - Presenter
-protocol WeatherPresenter_PR {
+protocol WeatherPresenterPR{
     func changeDegreeType()
     func fetchItems()
     func selectCell(index : Int)
     func getCellsCount() -> Int
-    func setupCell(cell : WeatherCell_PR , index : Int)
+    func setupCell(cell : WeatherCellPR, index : Int)
     func getWeatherByLocation(_ location : String)
     func getLocationFromCity(_ city : String)
     func getLocationFromZip(_ zip : String)
@@ -21,25 +21,25 @@ protocol WeatherPresenter_PR {
 }
 
 // MARK: - ForecastWeather
-protocol WeatherVC_PR {
+protocol WeatherVCPR{
     func startLoading()
     func endLoading()
     func requestFailedWith(message : String)
-    func weatherFetchedSucessfully(weather : WeatherModel_PR)
+    func weatherFetchedSucessfully(weather : WeatherModelPR)
     func wrongLocationFormat()
-    func degreeTypeChanged(weather : WeatherModel_PR?)
+    func degreeTypeChanged(weather : WeatherModelPR?)
     func reloadData()
 }
 
 // MARK: - Network
-protocol WeatherInteractor_PR {
-    func searchWeatherByLocation(lat : String , long : String , completion : @escaping (Result<WeatherModel_PR , Result_Errors>)->())
-    func getLocationByCityName(_ name : String , completion: @escaping (Result<WeatherModel_PR , Result_Errors>) -> ())
-    func getLocationByZipCode(_ code : String , completion: @escaping (Result<WeatherModel_PR , Result_Errors>) -> ())
+protocol WeatherInteractorPR{
+    func searchWeatherByLocation(lat : String , long : String , completion : @escaping (Result<WeatherModelPR, Result_Errors>)->())
+    func getLocationByCityName(_ name : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ())
+    func getLocationByZipCode(_ code : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ())
 }
 
 // MARK: - Weather Model Protocol
-protocol WeatherModel_PR {
+protocol WeatherModelPR{
     var weatherType : WeatherType? { get }
     var weatherF_Temp : String? { get }
     var weatherC_Temp : String { get }
@@ -49,11 +49,11 @@ protocol WeatherModel_PR {
 }
 
 // MARK: - Weather Data Source
-protocol WeatherDataSource_PR {
-    func fetchItems() -> [WeatherModel_PR]
-    func create_Save_Item(weather : WeatherModel_PR)
+protocol WeatherDataSourcePR{
+    func fetchItems() -> [WeatherModelPR]
+    func create_Save_Item(weather : WeatherModelPR)
 }
 
-protocol WeatherCell_PR {
+protocol WeatherCellPR{
     func setup(lat: String , long: String , name: String)
 }

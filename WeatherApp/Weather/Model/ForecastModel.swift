@@ -98,7 +98,7 @@ struct ForecastWind: Codable {
 }
 
 // MARK: - Model Protocol
-extension ForecastModel : WeatherModel_PR {
+extension ForecastModel : WeatherModelPR{
     var weatherType: WeatherType? {
         return .forecast
     }

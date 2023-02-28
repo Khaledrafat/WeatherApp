@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataSourceModel : WeatherModel_PR {
+struct DataSourceModel : WeatherModelPR{
     var weatherType: WeatherType?
     
     var weatherF_Temp: String?

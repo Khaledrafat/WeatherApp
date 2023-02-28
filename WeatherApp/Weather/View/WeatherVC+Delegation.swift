@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension WeatherVC: WeatherVC_PR {
+extension WeatherVC: WeatherVCPR{
     // MARK: - Start Loading
     func startLoading() {
         DispatchQueue.main.async {[weak self] in
@@ -29,7 +29,7 @@ extension WeatherVC: WeatherVC_PR {
         self.showFailureAlert(message)
     }
     
-    func weatherFetchedSucessfully(weather: WeatherModel_PR) {
+    func weatherFetchedSucessfully(weather: WeatherModelPR) {
         let weatherData = ["weather" : weather]
         NotificationCenter.default.post(name: NSNotification.Name("Weather"), object: nil, userInfo: weatherData)
         let degreeType = self.screenType == .forecast ? " °C" : Constants.degreeType.degree
@@ -59,7 +59,7 @@ extension WeatherVC: WeatherVC_PR {
     }
     
     // MARK: - Degree Type Changed
-    func degreeTypeChanged(weather: WeatherModel_PR?) {
+    func degreeTypeChanged(weather: WeatherModelPR?) {
         if let weather = weather {
             let degreeType = Constants.degreeType.degree
             let degree = Constants.degreeType == .C ? weather.weatherC_Temp : weather.weatherF_Temp.emptyString

@@ -7,10 +7,10 @@
 
 import Foundation
 
-class CurrentWeatherInteractor : WeatherInteractor_PR {
+class CurrentWeatherInteractor : WeatherInteractorPR{
     
     // MARK: - Get Weather By Location
-    func searchWeatherByLocation(lat: String, long: String, completion: @escaping (Result<WeatherModel_PR , Result_Errors>) -> ()) {
+    func searchWeatherByLocation(lat: String, long: String, completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
         let st_url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&appid=\(id)"
         let network = Network()
@@ -33,7 +33,7 @@ class CurrentWeatherInteractor : WeatherInteractor_PR {
     }
     
     // MARK: - Get Weather By City Name
-    func getLocationByCityName(_ name : String , completion: @escaping (Result<WeatherModel_PR , Result_Errors>) -> ()) {
+    func getLocationByCityName(_ name : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
         let st_url = "https://api.openweathermap.org/data/2.5/weather?q=\(name)&appid=\(id)"
         let network = Network()
@@ -56,7 +56,7 @@ class CurrentWeatherInteractor : WeatherInteractor_PR {
     }
     
     // MARK: - Get Weather By Zip Code
-    func getLocationByZipCode(_ code : String , completion: @escaping (Result<WeatherModel_PR , Result_Errors>) -> ()) {
+    func getLocationByZipCode(_ code : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
         let st_url = "https://api.openweathermap.org/data/2.5/weather?zip=\(code)&appid=\(id)"
         let network = Network()

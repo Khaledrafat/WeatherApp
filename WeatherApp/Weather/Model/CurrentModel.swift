@@ -65,7 +65,7 @@ struct CurrentWind: Codable {
 }
 
 // MARK: - Model Protocol
-extension CurrentModel : WeatherModel_PR {
+extension CurrentModel : WeatherModelPR{
     var weatherType: WeatherType? {
         return .current
     }

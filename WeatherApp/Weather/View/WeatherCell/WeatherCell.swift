@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherCell: UITableViewCell , WeatherCell_PR {
+class WeatherCell: UITableViewCell , WeatherCellPR{
 
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var cityName: UILabel!

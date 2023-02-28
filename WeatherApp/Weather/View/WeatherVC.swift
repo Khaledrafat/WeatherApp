@@ -40,7 +40,7 @@ class WeatherVC: ParentVC {
     @IBOutlet weak var bgImage: UIImageView!
     
     //Variables
-    var forecastPresenter: WeatherPresenter_PR?
+    var forecastPresenter: WeatherPresenterPR?
     var location: CLLocationCoordinate2D?
     let manager = CLLocationManager()
     var screenType: WeatherType = .forecast

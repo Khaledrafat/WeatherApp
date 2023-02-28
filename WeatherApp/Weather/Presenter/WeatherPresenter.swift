@@ -10,17 +10,17 @@ import UIKit
 
 enum WeatherType { case forecast , current }
 
-final class WeatherPresenter: WeatherPresenter_PR {
+final class WeatherPresenter: WeatherPresenterPR{
     
-    private var view: WeatherVC_PR!
-    private var interactor: WeatherInteractor_PR!
+    private var view: WeatherVCPR!
+    private var interactor: WeatherInteractorPR!
     private var weatherType: WeatherType!
-    private var lastWeather: WeatherModel_PR?
-    private var dataSource: WeatherDataSource_PR!
-    private var weatherItems: [WeatherModel_PR] = []
+    private var lastWeather: WeatherModelPR?
+    private var dataSource: WeatherDataSourcePR!
+    private var weatherItems: [WeatherModelPR] = []
     
     // MARK: - INIT
-    init(view: WeatherVC_PR , interactor: WeatherInteractor_PR , weatherType: WeatherType , dataSource : WeatherDataSource_PR = WeatherDataSource()) {
+    init(view: WeatherVCPR, interactor: WeatherInteractorPR, weatherType: WeatherType , dataSource : WeatherDataSourcePR = WeatherDataSource()) {
         self.view = view
         self.interactor = interactor
         self.weatherType = weatherType
@@ -123,7 +123,7 @@ final class WeatherPresenter: WeatherPresenter_PR {
     }
     
     // MARK: - Create Item
-    func createItem(weather : WeatherModel_PR) {
+    func createItem(weather : WeatherModelPR) {
         dataSource.create_Save_Item(weather: weather)
         if weatherItems.count >= 10 {
             weatherItems.remove(at: 0)
@@ -140,7 +140,7 @@ final class WeatherPresenter: WeatherPresenter_PR {
     }
     
     // MARK: - Setup Cell
-    func setupCell(cell : WeatherCell_PR , index : Int) {
+    func setupCell(cell : WeatherCellPR, index : Int) {
         let data = weatherItems
         guard data.count > index else { return }
         let newIndex = data.count - index - 1

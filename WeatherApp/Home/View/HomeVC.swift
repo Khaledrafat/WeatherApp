@@ -7,24 +7,24 @@
 
 import UIKit
 
-class HomeVC: UIViewController , HomeVC_PR {
+class HomeVC: UIViewController{
     
     @IBOutlet weak var weatherLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
     
-    var presenter: HomePresenter_PR!
+    var presenter: HomePresenterPR!
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.presenter = HomePresenter(view: self)
+        self.presenter = HomePresenter()
         self.locationLbl.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(weatherReceived), name: NSNotification.Name("Weather"), object: nil)
     }
     
     // MARK: - Receive Weather Data
     @objc func weatherReceived(_ notification: NSNotification) {
-        if let weather = notification.userInfo?["weather"] as? WeatherModel_PR {
+        if let weather = notification.userInfo?["weather"] as? WeatherModelPR{
             self.weatherLbl.text = weather.weatherC_Temp + " °C"
             if let location = weather.weatherCity {
                 self.locationLbl.isHidden = false
