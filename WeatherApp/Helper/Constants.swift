@@ -28,4 +28,6 @@ enum degreeType {
 class Constants {
     static var appID : String = "a7c74f7e2b497c59f87d6f90ff867344"
     static var degreeType : degreeType = .C
+    static var apiVerion : String = "data/2.5/"
+    static var apiBaseURL : String = "https://api.openweathermap.org/"
 }

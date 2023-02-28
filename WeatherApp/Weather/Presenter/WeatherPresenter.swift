@@ -12,11 +12,11 @@ enum WeatherType { case forecast , current }
 
 final class WeatherPresenter: WeatherPresenterPR{
     
-    private var view: WeatherVCPR!
-    private var interactor: WeatherInteractorPR!
-    private var weatherType: WeatherType!
+    private let view: WeatherVCPR
+    private let interactor: WeatherInteractorPR
+    private let weatherType: WeatherType
     private var lastWeather: WeatherModelPR?
-    private var dataSource: WeatherDataSourcePR!
+    private let dataSource: WeatherDataSourcePR
     private var weatherItems: [WeatherModelPR] = []
     
     // MARK: - INIT
@@ -33,7 +33,10 @@ final class WeatherPresenter: WeatherPresenterPR{
         if let range = location.range(of: ",") {
             let lat = location[range.upperBound...].trimmingCharacters(in: .whitespaces)
             let long = String(location[location.startIndex..<range.lowerBound]).trimmingCharacters(in: .whitespaces)
-            guard let _ = Double(lat) , let _ = Double(long) else { self.view.wrongLocationFormat() ; return }
+            guard let _ = Double(lat) , let _ = Double(long) else {
+                self.view.wrongLocationFormat()
+                return
+            }
             searchBy(lat: lat, long: long)
         }
     }
@@ -144,9 +147,9 @@ final class WeatherPresenter: WeatherPresenterPR{
         let data = weatherItems
         guard data.count > index else { return }
         let newIndex = data.count - index - 1
-        cell.setup(lat: data[newIndex].weatherLat.emptyString
-                    , long: data[newIndex].weatherLong.emptyString
-                    , name: data[newIndex].weatherCity.emptyString)
+        cell.setup(lat: data[newIndex].weatherLat.emptyString,
+                   long: data[newIndex].weatherLong.emptyString,
+                   name: data[newIndex].weatherCity.emptyString)
     }
     
     // MARK: - Get Cells Count

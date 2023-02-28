@@ -9,9 +9,9 @@ import UIKit
 
 class WeatherCell: UITableViewCell , WeatherCellPR{
 
-    @IBOutlet weak var bgView: UIView!
-    @IBOutlet weak var cityName: UILabel!
-    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet private weak var bgView: UIView!
+    @IBOutlet private weak var cityName: UILabel!
+    @IBOutlet private weak var locationLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

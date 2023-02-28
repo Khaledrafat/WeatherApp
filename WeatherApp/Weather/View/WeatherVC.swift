@@ -25,7 +25,7 @@ enum locationType {
     }
 }
 
-class WeatherVC: ParentVC {
+final class WeatherVC: ParentVC {
     
     //Outlets
     @IBOutlet weak var degreeLbl: UILabel!
@@ -91,6 +91,7 @@ class WeatherVC: ParentVC {
         }
     }
     
+    // MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if shouldShowPassed {

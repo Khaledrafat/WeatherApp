@@ -23,7 +23,6 @@ class Network {
     
     // MARK: - Main Request
     func request<T : Codable>(url : URL , params : [String : Any]? , headers : [String : String]? , method : HTTPMethod , completionHandler : @escaping (Result<T , Result_Errors>)->()) {
-        print("URL \(url)")
         var header : HTTPHeaders? = nil
         if let headers = headers {
             header = getHeader(headers)

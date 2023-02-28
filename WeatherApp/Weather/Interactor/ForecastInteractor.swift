@@ -10,15 +10,20 @@ import Foundation
 class ForecastInteractor : WeatherInteractorPR{
     
     // MARK: - Get Weather By Location
-    func searchWeatherByLocation(lat: String, long: String, completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
+    func searchWeatherByLocation(lat: String,
+                                 long: String,
+                                 completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
-        let st_url = "https://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(long)&appid=\(id)&cnt=1"
+        let st_url = "\(Constants.apiBaseURL)\(Constants.apiVerion)forecast?lat=\(lat)&lon=\(long)&appid=\(id)&cnt=1"
         let network = Network()
         guard let url = URL(string: st_url) else {
             completion(.failure(.errorMessage(message: "Something Went Wrong")))
             return
         }
-        network.request(url: url, params: nil, headers: nil, method: .post) { (response : Result<ForecastModel , Result_Errors>) in
+        network.request(url: url,
+                        params: nil,
+                        headers: nil,
+                        method: .post) { (response : Result<ForecastModel , Result_Errors>) in
             switch response {
             case .success(let model):
                 if model.weatherLat != nil && model.weatherLong != nil {
@@ -33,15 +38,19 @@ class ForecastInteractor : WeatherInteractorPR{
     }
     
     // MARK: - Get Weather By City Name
-    func getLocationByCityName(_ name : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
+    func getLocationByCityName(_ name: String ,
+                               completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
-        let st_url = "https://api.openweathermap.org/data/2.5/forecast?q=\(name)&appid=\(id)&cnt=1"
+        let st_url = "\(Constants.apiBaseURL)\(Constants.apiVerion)forecast?q=\(name)&appid=\(id)&cnt=1"
         let network = Network()
         guard let url = URL(string: st_url) else {
             completion(.failure(.errorMessage(message: "Something Went Wrong")))
             return
         }
-        network.request(url: url, params: nil, headers: nil, method: .post) { (response : Result<ForecastModel , Result_Errors>) in
+        network.request(url: url,
+                        params: nil,
+                        headers: nil,
+                        method: .post) { (response : Result<ForecastModel , Result_Errors>) in
             switch response {
             case .success(let model):
                 if model.weatherLat != nil && model.weatherLong != nil {
@@ -56,15 +65,19 @@ class ForecastInteractor : WeatherInteractorPR{
     }
     
     // MARK: - Get Weather By Zip Code
-    func getLocationByZipCode(_ code : String , completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
+    func getLocationByZipCode(_ code: String ,
+                              completion: @escaping (Result<WeatherModelPR, Result_Errors>) -> ()) {
         let id = Constants.appID
-        let st_url = "https://api.openweathermap.org/data/2.5/forecast?zip=\(code)&appid=\(id)&cnt=1"
+        let st_url = "\(Constants.apiBaseURL)\(Constants.apiVerion)forecast?zip=\(code)&appid=\(id)&cnt=1"
         let network = Network()
         guard let url = URL(string: st_url) else {
             completion(.failure(.errorMessage(message: "Something Went Wrong")))
             return
         }
-        network.request(url: url, params: nil, headers: nil, method: .post) { (response : Result<ForecastModel , Result_Errors>) in
+        network.request(url: url,
+                        params: nil,
+                        headers: nil,
+                        method: .post) { (response : Result<ForecastModel , Result_Errors>) in
             switch response {
             case .success(let model):
                 if model.weatherLat != nil && model.weatherLong != nil {

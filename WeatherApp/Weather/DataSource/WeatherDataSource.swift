@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherDataSource: WeatherDataSourcePR{
+final class WeatherDataSource: WeatherDataSourcePR{
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var dataSourceItems : [WeatherItem] = []

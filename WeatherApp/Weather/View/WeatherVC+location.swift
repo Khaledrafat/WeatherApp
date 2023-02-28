@@ -19,7 +19,6 @@ extension WeatherVC: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue = locations.last?.coordinate else { return }
-        print(locValue)
         if typeSegment.selectedSegmentIndex == 1 , shouldGetCurrentLocation {
             let location = "\(locValue.longitude) , \(locValue.latitude)"
             self.forecastPresenter?.getWeatherByLocation(location)

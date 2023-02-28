@@ -9,10 +9,10 @@ import UIKit
 
 class HomeVC: UIViewController{
     
-    @IBOutlet weak var weatherLbl: UILabel!
-    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet private weak var weatherLbl: UILabel!
+    @IBOutlet private weak var locationLbl: UILabel!
     
-    var presenter: HomePresenterPR!
+    private var presenter: HomePresenterPR!
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -24,16 +24,14 @@ class HomeVC: UIViewController{
     
     // MARK: - Receive Weather Data
     @objc func weatherReceived(_ notification: NSNotification) {
-        if let weather = notification.userInfo?["weather"] as? WeatherModelPR{
-            self.weatherLbl.text = weather.weatherC_Temp + " °C"
-            if let location = weather.weatherCity {
-                self.locationLbl.isHidden = false
-                if let type = weather.weatherType {
-                    self.locationLbl.text = type == .forecast ? "Forecast Degree For: \n \(location)" : "Current Degree For: \n \(location)"
-                } else {
-                    self.locationLbl.text = location
-                }
-            }
+        guard let weather = notification.userInfo?["weather"] as? WeatherModelPR else { return }
+        self.weatherLbl.text = weather.weatherC_Temp + " °C"
+        guard let location = weather.weatherCity else { return }
+        self.locationLbl.isHidden = false
+        if let type = weather.weatherType {
+            self.locationLbl.text = type == .forecast ? "Forecast Degree For: \n \(location)" : "Current Degree For: \n \(location)"
+        } else {
+            self.locationLbl.text = location
         }
     }
     
