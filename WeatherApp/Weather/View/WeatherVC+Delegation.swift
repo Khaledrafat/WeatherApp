@@ -46,10 +46,8 @@ extension WeatherVC: WeatherVCPR{
         guard self.cityLbl.isHidden == true else { return }
         UIView.animate(withDuration: 0.4) { [weak self] in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.cityLbl.isHidden = false
-                self.getForcastBtn.isHidden = self.screenType == .forecast
-            }
+            self.cityLbl.isHidden = false
+            self.getForcastBtn.isHidden = self.screenType == .forecast
         }
     }
     
