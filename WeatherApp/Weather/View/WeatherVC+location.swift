@@ -32,12 +32,8 @@ extension WeatherVC: CLLocationManagerDelegate {
         case .authorizedAlways , .authorizedWhenInUse:
             manager.startUpdatingLocation()
         default:
-            self.showFailureAlert("Please Turn On your Device Location")
+            break
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.showFailureAlert(error.localizedDescription)
     }
     
     func requestLocationUpdates() {
@@ -45,6 +41,7 @@ extension WeatherVC: CLLocationManagerDelegate {
         case .notDetermined:
             manager.requestWhenInUseAuthorization()
         case .authorizedAlways , .authorizedWhenInUse:
+            manager.stopUpdatingLocation()
             manager.startUpdatingLocation()
         default:
             self.showFailureAlert("Please Turn On your Device Location")

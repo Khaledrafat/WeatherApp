@@ -164,7 +164,7 @@ final class WeatherPresenter: WeatherPresenter_PR {
         guard weatherItems.count > index else { return }
         let newIndex = weatherItems.count - index - 1
         let item = weatherItems[newIndex]
-        guard self.weatherType == .current , newIndex >= 5 else {
+        guard self.weatherType == .current , index < 5 else {
             if let lat = item.weatherLat , let long = item.weatherLong {
                 self.getWeatherByLocation("\(long) , \(lat)")
             } else if let city = item.weatherCity {

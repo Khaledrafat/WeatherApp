@@ -122,8 +122,7 @@ class WeatherVC: ParentVC {
             self.forecastPresenter?.getLocationFromCity(textField.text.emptyString)
         case .currentLocation:
             shouldGetCurrentLocation = true
-            manager.stopUpdatingLocation()
-            manager.startUpdatingLocation()
+            requestLocationUpdates()
         case .location:
             self.forecastPresenter?.getWeatherByLocation(self.textField.text.emptyString)
         }

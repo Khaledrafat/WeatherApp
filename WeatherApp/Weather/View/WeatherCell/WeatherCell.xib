@@ -20,7 +20,7 @@
                         <rect key="frame" x="8" y="4" width="304" height="76"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qp4-0G-Fku">
-                                <rect key="frame" x="4" y="4" width="296" height="68"/>
+                                <rect key="frame" x="8" y="6" width="288" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qi-ob-Ym7">
                                         <rect key="frame" x="0.0" y="0.0" width="4.5" height="20.5"/>
@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyj-lc-ES6">
-                                        <rect key="frame" x="0.0" y="53.5" width="3.5" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="3.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -39,10 +39,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qp4-0G-Fku" firstAttribute="leading" secondItem="1TG-sk-IX4" secondAttribute="leading" constant="4" id="Imk-9f-az8"/>
-                            <constraint firstItem="qp4-0G-Fku" firstAttribute="top" secondItem="1TG-sk-IX4" secondAttribute="top" constant="4" id="S3w-Yx-vRw"/>
-                            <constraint firstAttribute="bottom" secondItem="qp4-0G-Fku" secondAttribute="bottom" constant="4" id="YNp-7U-xvI"/>
-                            <constraint firstAttribute="trailing" secondItem="qp4-0G-Fku" secondAttribute="trailing" constant="4" id="dKg-Zn-QDU"/>
+                            <constraint firstItem="qp4-0G-Fku" firstAttribute="leading" secondItem="1TG-sk-IX4" secondAttribute="leading" constant="8" id="Imk-9f-az8"/>
+                            <constraint firstItem="qp4-0G-Fku" firstAttribute="top" secondItem="1TG-sk-IX4" secondAttribute="top" constant="6" id="S3w-Yx-vRw"/>
+                            <constraint firstAttribute="bottom" secondItem="qp4-0G-Fku" secondAttribute="bottom" constant="6" id="YNp-7U-xvI"/>
+                            <constraint firstAttribute="trailing" secondItem="qp4-0G-Fku" secondAttribute="trailing" constant="8" id="dKg-Zn-QDU"/>
                         </constraints>
                     </view>
                 </subviews>
