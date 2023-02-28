@@ -8,9 +8,10 @@
 import UIKit
 
 class ParentVC : UIViewController {
-    
     let child = SpinnerViewController()
-    
+}
+
+extension ParentVC {
     // MARK: - Show Failure Alert
     func showFailureAlert(_ message : String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
