@@ -9,17 +9,29 @@ import UIKit
 
 class HomeVC: UIViewController{
     
-    @IBOutlet private weak var weatherLbl: UILabel!
-    @IBOutlet private weak var locationLbl: UILabel!
+    @IBOutlet weak var weatherLbl: UILabel!
+    @IBOutlet weak var locationLbl: UILabel!
     
     private var presenter: HomePresenterPR!
+    private var notification : notificationCenterPR? = NotificationCenter.default
+    
+    // MARK: - For Unit Test
+    convenience init(notification : notificationCenterPR = NotificationCenter.default) {
+        self.init()
+        self.notification = notification
+    }
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter = HomePresenter()
         self.locationLbl.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(weatherReceived), name: NSNotification.Name("Weather"), object: nil)
+        self.setupObserver()
+    }
+    
+    // MARK: - Setup NotificationCenter Observer
+    private func setupObserver() {
+        notification?.addObserver(self, selector: #selector(weatherReceived), name: NSNotification.Name("Weather"), object: nil)
     }
     
     // MARK: - Receive Weather Data
@@ -44,7 +56,7 @@ class HomeVC: UIViewController{
     
     // MARK: - Deinit
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        notification?.removeObserver(self)
     }
 
 }
